@@ -2,7 +2,7 @@
 
 This respository used to collect what I've learn during my Data Scientist Bootcamp with Datarockie
 
-##Topics
+## Topics
 
 - Spreadsheet
 - SQL Database
