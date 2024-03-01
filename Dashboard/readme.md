@@ -2,4 +2,5 @@
 # My Dashboards
 
 [PUBG vs FreeFire](https://docs.google.com/spreadsheets/d/1TqPt84jMnhiMhuR6pQgg2h4474qjCsxQnuNJxb2MdKo/edit?usp=sharing) Dashboard on Google Sheet
-[Valentine's Spending Statistics]([url](https://public.tableau.com/views/Homework_tableau_17084355386660/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link)https://public.tableau.com/views/Homework_tableau_17084355386660/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link) Dashboard on Tableau
+
+[Valentine's Spending Statistics](https://public.tableau.com/views/Homework_tableau_17084355386660/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link) Dashboard on Tableau
