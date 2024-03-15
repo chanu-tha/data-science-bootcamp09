@@ -50,3 +50,5 @@ GROUP BY 1,2,3
 ORDER BY product_line, month, net_revenue DESC;
 ```
 **The result shows**
+
+[![Motor-part.jpg](https://i.postimg.cc/MpFLkWB9/Motor-part.jpg)](https://postimg.cc/SncdCbD9)
