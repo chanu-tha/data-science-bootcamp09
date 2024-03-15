@@ -31,6 +31,7 @@ Write a query to determine how many products have the `year_added` value missing
 SELECT *
 FROM products;
 ```
+[![Table-1.jpg](https://i.postimg.cc/tT0mT22P/Table-1.jpg)](https://postimg.cc/wtVk4cKT)
 
 **As I can see from the table, the 'year_added' column has many NULL value. From Task 1, they asked to count the NULL values as missing_year which can do by the query below**
 
@@ -42,7 +43,7 @@ WHERE year_added IS NULL;
 
 **The result is there are 170 missing values from 'year_added' column**
 
-
+[![Table-2.jpg](https://i.postimg.cc/GhbVGgrx/Table-2.jpg)](https://postimg.cc/PNFSk4CC)
 
 
 # Task 2
@@ -116,6 +117,7 @@ ON products.product_id = pro_wt.product_id;
 
 SELECT * FROM products_clean;
 ```
+[![Table-3.jpg](https://i.postimg.cc/g0LTmfqm/Table-3.jpg)](https://postimg.cc/bG8TRVBB)
 
 # Task 3
 
@@ -135,6 +137,7 @@ GROUP BY product_type;
 
 **The result shows**
 
+[![Table-4.jpg](https://i.postimg.cc/WbSKnm1L/Table-4.jpg)](https://postimg.cc/8jJtk6vt)
 
 
 # Task 4
@@ -154,5 +157,7 @@ WHERE product_type IN ('Meat', 'Dairy') AND average_units_sold > 10;
 ```
 
 **The result shows**
+
+[![Table-5.jpg](https://i.postimg.cc/sgXL0BMB/Table-5.jpg)](https://postimg.cc/ppwkmLYx)
 
 
