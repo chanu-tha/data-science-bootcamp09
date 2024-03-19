@@ -100,7 +100,7 @@ WITH pro_wt AS (SELECT product_id,
 			
 SELECT products.product_id,
        COALESCE(product_type, 'Unknown') AS product_type,
-       COALESCE(brand, 'Unknown') AS brand,
+       REPLACE(brand,'-', 'Unknown') AS brand,
 	     COALESCE(pro_wt.weight, (SELECT percentile_cont(0.5) WITHIN GROUP (ORDER BY pro_wt.weight)
                               FROM pro_wt)) AS weight,
 	     COALESCE(ROUND(price::numeric,2), (SELECT ROUND(percentile_cont(0.5)
