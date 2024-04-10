@@ -140,7 +140,83 @@ ORDER BY average_rating DESC;
 
 The three main ingredients for chocolate products are Beans, Sugar and Cocoa Butter. However, it hard to draw any conclusions about how each ingredient affects the overall rating of a recipe based solely on this table. The average rating for each ingredient is based on unknown recipes, and we don't know how much of each ingredient is used in each recipe. The only conclusion from this table is chocolate product that contains Beans, Sugar and Cocoa Butter recieve more average rating than other ingredients.
 
-3.
+3. Identifying Flavor Profiles
+   Chocolate products from various bean origins exhibit distinct characteristics. The 'most_memorable_characteristics' column holds up to three characteristics per product. I intend to convert this data into an array format, similar to the previous one. Additionally, I want to standardize terms related to the 'nutty' profile by grouping them under 'nut,' 'nuts,' or 'nutty' and many more. Cleaning this data before further analysis is crucial to ensure accurate characterization.
+
+   ```sql
+-- create new table for clean data
+DROP TABLE IF EXISTS character_clean;
+CREATE TABLE character_clean(
+        ref int,
+        company_manufacturer varchar,
+        company_location varchar,
+        review_date int,
+        country_of_bean_origin varchar,
+        specific_bean_origin_or_bar_name varchar,
+        cocoa_percent varchar,
+        ingredients varchar,
+        characteristics varchar,
+        rating numeric
+);
+   ```
+
+```sql
+-- popular chocolate characteristics
+
+CREATE TEMP TABLE split_characteristics AS
+WITH split_characteristics AS (
+    SELECT ref,
+           company_manufacturer,
+           company_location,
+           review_date,
+           country_of_bean_origin,
+           specific_bean_origin_or_bar_name,
+           cocoa_percent,
+           TRIM(UNNEST(string_to_array(most_memorable_characteristics, ','))) AS characteristics,
+           ingredients,
+           rating
+    FROM chocolate
+)
+
+SELECT * FROM split_characteristics;
+
+UPDATE split_characteristics
+SET characteristics = 'nutty'
+WHERE characteristics IN ('nut', 'nuts');
+
+UPDATE split_characteristics
+SET characteristics = 'astringent'
+WHERE characteristics = '%astin%';
+
+UPDATE split_characteristics
+SET characteristics = 'berry'
+WHERE characteristics = 'berries';
+
+UPDATE split_characteristics
+SET characteristics = 'blackberry'
+WHERE characteristics = 'blackberries';
+
+UPDATE split_characteristics
+SET characteristics = 'blueberry'
+WHERE characteristics = 'blueberries';
+
+-- many more term to group
+
+UPDATE split_characteristics
+SET characteristics = 'winey'
+WHERE characteristics = 'wine';
+
+UPDATE split_characteristics
+SET characteristics = 'woody'
+WHERE characteristics IN ('woodsy', 'wood');
+
+-- 2. insert cleaned data into new table
+
+INSERT INTO character_clean 
+SELECT *
+FROM split_characteristics
+
+```
 
 
 
