@@ -143,7 +143,7 @@ The three main ingredients for chocolate products are Beans, Sugar and Cocoa But
 3. Identifying Flavor Profiles
    Chocolate products from various bean origins exhibit distinct characteristics. The 'most_memorable_characteristics' column holds up to three characteristics per product. I intend to convert this data into an array format, similar to the previous one. Additionally, I want to standardize terms related to the 'nutty' profile by grouping them under 'nut,' 'nuts,' or 'nutty' and many more. Cleaning this data before further analysis is crucial to ensure accurate characterization.
 
-   ```sql
+```sql
 -- create new table for clean data
 DROP TABLE IF EXISTS character_clean;
 CREATE TABLE character_clean(
@@ -158,7 +158,7 @@ CREATE TABLE character_clean(
         characteristics varchar,
         rating numeric
 );
-   ```
+```
 
 ```sql
 -- popular chocolate characteristics
