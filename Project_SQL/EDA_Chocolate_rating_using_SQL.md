@@ -108,7 +108,40 @@ ON chocolate.ref = cocoa_int.ref;
 
 The weak correlation (r = 0.054) between cocoa percentage and rating suggests no clear link. A scatter plot would visually confirm this.
 
-2.
+2.Explore Impact of Specific Ingredients on Rating
+    I want to transform the 'ingredients' column in the first table into a single array containing all the unique ingredients used across all chocolate products. This will allow me to group the ingredients and analyze their impact on ratings, with any leading or trailing whitespace removed for easier processing.
+
+```sql
+-- ingredients
+-- 1. Split ingredients column into separate rows for each ingredient
+WITH split_ingredients AS (
+    SELECT ref,
+           company_manufacturer,
+           company_location,
+           review_date,
+           country_of_bean_origin,
+           specific_bean_origin_or_bar_name,
+           cocoa_percent,
+           TRIM(UNNEST(string_to_array(SPLIT_PART(ingredients,'-',2), ','))) AS ingredient,
+           most_memorable_characteristics,
+           rating
+    FROM chocolate
+)
+-- 2. Group by ingredient and calculate average rating
+SELECT ingredient,
+        ROUND(AVG(rating),2) AS average_rating,
+        COUNT(*)
+FROM split_ingredients
+GROUP BY ingredient
+ORDER BY average_rating DESC;
+```
+[img4]
+(B = Beans, S = Sugar, S* = Sweetener other than white cane or beet sugar, C = Cocoa Butter, V = Vanilla, L = Lecithin, Sa = Salt)
+
+The three main ingredients for chocolate products are Beans, Sugar and Cocoa Butter. However, it hard to draw any conclusions about how each ingredient affects the overall rating of a recipe based solely on this table. The average rating for each ingredient is based on unknown recipes, and we don't know how much of each ingredient is used in each recipe. The only conclusion from this table is chocolate product that contains Beans, Sugar and Cocoa Butter recieve more average rating than other ingredients.
+
+3.
+
 
 
 
