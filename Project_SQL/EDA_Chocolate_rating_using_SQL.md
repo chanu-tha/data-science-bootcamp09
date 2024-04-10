@@ -232,7 +232,7 @@ FROM split_characteristics
 
 
 
-
+4.brand vs origin use
 
 
 
