@@ -120,7 +120,7 @@ ON chocolate.ref = cocoa_int.ref;
 
 The weak correlation (r = 0.054) between cocoa percentage and rating suggests no clear link. A scatter plot would visually confirm this.
 
-2.Explore Impact of Specific Ingredients on Rating
+2.Explore Impact of Specific Ingredients on Rating <br>
     I want to transform the 'ingredients' column in the first table into a single array containing all the unique ingredients used across all chocolate products. This will allow me to group the ingredients and analyze their impact on ratings, with any leading or trailing whitespace removed for easier processing.
 
 ```sql
@@ -152,7 +152,7 @@ ORDER BY average_rating DESC;
 
 The three main ingredients for chocolate products are Beans, Sugar and Cocoa Butter. However, it hard to draw any conclusions about how each ingredient affects the overall rating of a recipe based solely on this table. The average rating for each ingredient is based on unknown recipes, and we don't know how much of each ingredient is used in each recipe. The only conclusion from this table is chocolate product that contains Beans, Sugar and Cocoa Butter recieve more average rating than other ingredients.
 
-3. Identifying Flavor Profiles
+3. Identifying Flavor Profiles <br>
    Chocolate products from various bean origins exhibit distinct characteristics. The 'most_memorable_characteristics' column holds up to three characteristics per product. I intend to convert this data into an array format, similar to the previous one. Additionally, I want to standardize terms related to the 'nutty' profile by grouping them under 'nut,' 'nuts,' or 'nutty' and many more. Cleaning this data before further analysis is crucial to ensure accurate characterization.
 
 ```sql
