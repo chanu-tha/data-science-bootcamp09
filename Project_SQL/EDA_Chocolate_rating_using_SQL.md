@@ -1,7 +1,7 @@
 ## This project aims to demonstrate my skill on Exploratory Data Analysis using SQL
 
-dataset: (https://www.kaggle.com/datasets/joebeachcapital/chocolate-ratings)
-this dataset gives the ratings and quality of various chocolates from around the world
+dataset: (https://www.kaggle.com/datasets/joebeachcapital/chocolate-ratings)<br>
+This dataset gives the ratings and quality of various chocolates from around the world
 
 |variable|description|
 |---|---|
@@ -14,15 +14,7 @@ this dataset gives the ratings and quality of various chocolates from around the
 |cocoa_percent|Cocoa percent (% chocolate)|
 |ingredients|Ingredients, ("#" = represents the number of ingredients in the chocolate; B = Beans, S = Sugar, S* = Sweetener other than white cane or beet sugar, C = Cocoa Butter, V = Vanilla, L = Lecithin, Sa = Salt)|
 |most_memorable_characteristics|Most Memorable Characteristics column is a summary review of the most memorable characteristics of that bar. Terms generally relate to anything from texture, flavor, overall opinion, etc. separated by ','|
-|rating|rating between 1-5|
-
-
-
-
-
-
-
-	
+|rating|rating between 1-5|	
 
 
 
