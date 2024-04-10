@@ -2,7 +2,7 @@ This is a pratical exam for SQL Associate with 4 Tasks to be completed.
 
 **My comment will be in bold**
 
-# Practical Exam:Hotel Operations
+## Practical Exam:Hotel Operations
 
 LuxurStay Hotels is a major, international chain of hotels. They offer hotels for both business and leisure travellers in major cities across the world. The chain prides themselves on the level of customer service that they offer. 
 
