@@ -275,7 +275,7 @@ SELECT company_manufacturer,
 FROM chocolate
 GROUP BY 1,2,3
 ```
-[![c6.jpg](https://i.postimg.cc/hPr8w03d/c6.jpg)](https://postimg.cc/VdJb0Xwf)
+[![c6.jpg](https://i.postimg.cc/hPr8w03d/c6.jpg)](https://postimg.cc/VdJb0Xwf) <br>
 Find the top manufacturers that produce chocolate products with recommended rating or above. Need to work with the above query as CTE.
 ```sql
 WITH segment_rating AS (
