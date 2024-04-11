@@ -65,7 +65,7 @@ cur.close()
 conn.close()
 ```
 Quickly view through the table
-[img1]
+[![c1.jpg](https://i.postimg.cc/Xq6cM1bw/c1.jpg)](https://postimg.cc/njTQBkMz)
 
 
 1.Find Top-Rated Chocolate by Origin and Cocoa Percentage
