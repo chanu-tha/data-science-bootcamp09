@@ -300,9 +300,9 @@ GROUP BY company_manufacturer;
 ```
 [![c7.jpg](https://i.postimg.cc/dQGjRF2n/c7.jpg)](https://postimg.cc/s1DWyt0Z) <br>
 This table provides insights into the manufacturers with the most chocolate products rated as "recommended" or higher. 
-1.Soma     54 products
-2.Fresco   36 products
-3.Arete    31 products
+    1.Soma     54 products
+    2.Fresco   36 products
+    3.Arete    31 products
 
 
 
