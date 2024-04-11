@@ -258,7 +258,8 @@ SQL queries can provide insights into chocolate characteristics, but a clean dat
 |1.0 - 1.9|Unpleasant|
 
 
-This dataset
+I will use the scale in the rating table to do segmentation for each product and explore which manufacturer produce most products with Recommended rate and above.
+
 
 
 
