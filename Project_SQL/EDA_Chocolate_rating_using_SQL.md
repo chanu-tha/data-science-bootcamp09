@@ -68,7 +68,7 @@ Quickly view through the table
 [![c1.jpg](https://i.postimg.cc/Xq6cM1bw/c1.jpg)](https://postimg.cc/njTQBkMz)
 
 
-1.Find Top-Rated Chocolate by Origin and Cocoa Percentage
+**1.Find Top-Rated Chocolate by Origin and Cocoa Percentage**
 ```sql
 --Top rated chocolate by Origin and Cocoa Percentage
 SELECT country_of_bean_origin,
@@ -80,7 +80,7 @@ GROUP BY 1,2,3
 ORDER BY 4 DESC
 LIMIT 100;
 ```
-[img1]
+[![c2.jpg](https://i.postimg.cc/RZp7CZmC/c2.jpg)](https://postimg.cc/rDW0Qcz7)
 
 I want to know more on among chocolates with a 4.0 rating, what country of origin has the highest count of beans used?
 
@@ -95,7 +95,7 @@ WHERE rating = 4.0
 GROUP BY 1,2
 ORDER BY 3 DESC;
 ```
-[img2]
+[![c3.jpg](https://i.postimg.cc/0yyGqJLH/c3.jpg)](https://postimg.cc/fJ1SckWx)
 
     The top 3 countries of bean origin
     1.Venezuela    17.86%
@@ -116,11 +116,11 @@ FROM chocolate
 JOIN cocoa_int
 ON chocolate.ref = cocoa_int.ref;
 ```
-[img3]
+[![c4.jpg](https://i.postimg.cc/SRLLmLSH/c4.jpg)](https://postimg.cc/Wq3qnkJ7)
 
 The weak correlation (r = 0.054) between cocoa percentage and rating suggests no clear link. A scatter plot would visually confirm this.
 
-2.Explore Impact of Specific Ingredients on Rating <br>
+**2.Explore Impact of Specific Ingredients on Rating** <br>
     I want to transform the 'ingredients' column in the first table into a single array containing all the unique ingredients used across all chocolate products. This will allow me to group the ingredients and analyze their impact on ratings, with any leading or trailing whitespace removed for easier processing.
 
 ```sql
@@ -147,12 +147,12 @@ FROM split_ingredients
 GROUP BY ingredient
 ORDER BY average_rating DESC;
 ```
-[img4]
+[![C5.jpg](https://i.postimg.cc/vHML3KXy/C5.jpg)](https://postimg.cc/hhydGpHZ)
 (B = Beans, S = Sugar, S* = Sweetener other than white cane or beet sugar, C = Cocoa Butter, V = Vanilla, L = Lecithin, Sa = Salt)
 
 The three main ingredients for chocolate products are Beans, Sugar and Cocoa Butter. However, it hard to draw any conclusions about how each ingredient affects the overall rating of a recipe based solely on this table. The average rating for each ingredient is based on unknown recipes, and we don't know how much of each ingredient is used in each recipe. The only conclusion from this table is chocolate product that contains Beans, Sugar and Cocoa Butter recieve more average rating than other ingredients.
 
-3. Identifying Flavor Profiles <br>
+**3. Identifying Flavor Profiles** <br>
    Chocolate products from various bean origins exhibit distinct characteristics. The 'most_memorable_characteristics' column holds up to three characteristics per product. I intend to convert this data into an array format, similar to the previous one. Additionally, I want to standardize terms related to the 'nutty' profile by grouping them under 'nut,' 'nuts,' or 'nutty' and many more. Cleaning this data before further analysis is crucial to ensure accurate characterization.
 
 ```sql
@@ -240,7 +240,7 @@ GROUP BY characteristic
 ORDER BY num DESC, average_rating
 LIMIT 10;
 ```
-[top10_img]
+[![Top-10-char.jpg](https://i.postimg.cc/cCQQmRPX/Top-10-char.jpg)](https://postimg.cc/4Hx749f9)
 
 From this table, the most mentioned characteristics are nutty, sweet, and cocoa. The average rating for most characteristics is above 3.00, suggesting a general preference for chocolates with these attributes.  Creamy chocolates have the highest average rating (3.48), followed by cocoa (3.37) and spicy (3.32). This suggests a particular fondness for creamy chocolates, but also an appreciation for complex flavors.
 
@@ -249,7 +249,8 @@ While "sweet" is the second most mentioned characteristic, its ratings (3.05) ar
 SQL queries can provide insights into chocolate characteristics, but a clean dataset like this one is much easier to analyze with data visualization tools. Visualization tools can uncover hidden patterns within the hundreds of characteristics listed, leading to a richer understanding of consumer preferences.
 
 
-4.Find the top manufacturers that produce chocolate products with recommended rating or above<br>
+**4.Find the top manufacturers that produce chocolate products with recommended rating or above**<br>
+
 |rating|description|
 |---|---|
 |4.0 - 5.0|Outstanding|
@@ -274,7 +275,7 @@ SELECT company_manufacturer,
 FROM chocolate
 GROUP BY 1,2,3
 ```
-[img6]
+[![c6.jpg](https://i.postimg.cc/hPr8w03d/c6.jpg)](https://postimg.cc/VdJb0Xwf)
 Find the top manufacturers that produce chocolate products with recommended rating or above. Need to work with the above query as CTE.
 ```sql
 WITH segment_rating AS (
@@ -297,6 +298,7 @@ SELECT ROW_NUMBER() OVER (ORDER BY SUM(num_rate) DESC),
 FROM segment_rating
 GROUP BY company_manufacturer;
 ```
+[![c7.jpg](https://i.postimg.cc/dQGjRF2n/c7.jpg)](https://postimg.cc/s1DWyt0Z)
 This table provides insights into the manufacturers with the most chocolate products rated as "recommended" or higher. 
 1.Soma     54 products
 2.Fresco   36 products
