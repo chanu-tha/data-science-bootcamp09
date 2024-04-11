@@ -229,7 +229,8 @@ SELECT *
 FROM split_characteristics
 
 ```
-I want to see Top 10 general characteristics mention and average rating.
+The terms of characterisric had been standardized.<br> 
+Extract Top 10 general characteristics mention and average rating.
 ```sql
 SELECT characteristic,
         Count(*) as num,
@@ -259,9 +260,22 @@ SQL queries can provide insights into chocolate characteristics, but a clean dat
 
 
 I will use the scale in the rating table to do segmentation for each product and explore which manufacturer produce most products with Recommended rate and above.
-
-
-
+First, segment the rating
+```sql
+WITH segment_rating AS (
+SELECT company_manufacturer,
+        company_location,
+        CASE WHEN rating BETWEEN 1 AND 1.9 THEN 'unpleasant'
+             WHEN rating BETWEEN 2 AND 2.9 THEN 'disappointing'
+             WHEN rating BETWEEN 3 AND 3.49 THEN 'recommended'
+             WHEN rating BETWEEN 3.5 AND 3.9 THEN 'highly recommended'
+             WHEN rating BETWEEN 4 AND 5 THEN 'outstanding'
+             ELSE 'NA' END AS rating_label,
+        COUNT(*) AS num_rate        
+FROM chocolate
+GROUP BY 1,2,3)
+```
+[img6]
 
 
 
