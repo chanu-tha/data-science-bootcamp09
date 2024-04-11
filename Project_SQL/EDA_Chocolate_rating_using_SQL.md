@@ -147,7 +147,7 @@ FROM split_ingredients
 GROUP BY ingredient
 ORDER BY average_rating DESC;
 ```
-[![C5.jpg](https://i.postimg.cc/vHML3KXy/C5.jpg)](https://postimg.cc/hhydGpHZ)
+[![C5.jpg](https://i.postimg.cc/vHML3KXy/C5.jpg)](https://postimg.cc/hhydGpHZ) <br>
 (B = Beans, S = Sugar, S* = Sweetener other than white cane or beet sugar, C = Cocoa Butter, V = Vanilla, L = Lecithin, Sa = Salt)
 
 The three main ingredients for chocolate products are Beans, Sugar and Cocoa Butter. However, it hard to draw any conclusions about how each ingredient affects the overall rating of a recipe based solely on this table. The average rating for each ingredient is based on unknown recipes, and we don't know how much of each ingredient is used in each recipe. The only conclusion from this table is chocolate product that contains Beans, Sugar and Cocoa Butter recieve more average rating than other ingredients.
@@ -298,7 +298,7 @@ SELECT ROW_NUMBER() OVER (ORDER BY SUM(num_rate) DESC),
 FROM segment_rating
 GROUP BY company_manufacturer;
 ```
-[![c7.jpg](https://i.postimg.cc/dQGjRF2n/c7.jpg)](https://postimg.cc/s1DWyt0Z)
+[![c7.jpg](https://i.postimg.cc/dQGjRF2n/c7.jpg)](https://postimg.cc/s1DWyt0Z) <br>
 This table provides insights into the manufacturers with the most chocolate products rated as "recommended" or higher. 
 1.Soma     54 products
 2.Fresco   36 products
