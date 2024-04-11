@@ -249,7 +249,7 @@ While "sweet" is the second most mentioned characteristic, its ratings (3.05) ar
 SQL queries can provide insights into chocolate characteristics, but a clean dataset like this one is much easier to analyze with data visualization tools. Visualization tools can uncover hidden patterns within the hundreds of characteristics listed, leading to a richer understanding of consumer preferences.
 
 
-4.brand and rating<br>
+4.Find the top manufacturers that produce chocolate products with recommended rating or above<br>
 |rating|description|
 |---|---|
 |4.0 - 5.0|Outstanding|
@@ -259,8 +259,23 @@ SQL queries can provide insights into chocolate characteristics, but a clean dat
 |1.0 - 1.9|Unpleasant|
 
 
-I will use the scale in the rating table to do segmentation for each product and explore which manufacturer produce most products with Recommended rate and above.
-First, segment the rating
+I will use the scale in the rating table to do segmentation for each product.<br>
+
+```sql
+SELECT company_manufacturer,
+        company_location,
+        CASE WHEN rating BETWEEN 1 AND 1.9 THEN 'unpleasant'
+             WHEN rating BETWEEN 2 AND 2.9 THEN 'disappointing'
+             WHEN rating BETWEEN 3 AND 3.49 THEN 'recommended'
+             WHEN rating BETWEEN 3.5 AND 3.9 THEN 'highly recommended'
+             WHEN rating BETWEEN 4 AND 5 THEN 'outstanding'
+             ELSE 'NA' END AS rating_label,
+        COUNT(*) AS num_rate        
+FROM chocolate
+GROUP BY 1,2,3
+```
+[img6]
+Find the top manufacturers that produce chocolate products with recommended rating or above. Need to work with the above query as CTE.
 ```sql
 WITH segment_rating AS (
 SELECT company_manufacturer,
@@ -273,10 +288,19 @@ SELECT company_manufacturer,
              ELSE 'NA' END AS rating_label,
         COUNT(*) AS num_rate        
 FROM chocolate
+WHERE rating >= 3
 GROUP BY 1,2,3)
-```
-[img6]
 
+SELECT ROW_NUMBER() OVER (ORDER BY SUM(num_rate) DESC),
+        company_manufacturer,
+        SUM(num_rate) AS num_rating
+FROM segment_rating
+GROUP BY company_manufacturer;
+```
+This table provides insights into the manufacturers with the most chocolate products rated as "recommended" or higher. 
+1.Soma     54 products
+2.Fresco   36 products
+3.Arete    31 products
 
 
 
