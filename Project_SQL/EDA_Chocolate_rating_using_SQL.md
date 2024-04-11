@@ -229,10 +229,36 @@ SELECT *
 FROM split_characteristics
 
 ```
+I want to see Top 10 general characteristics mention and average rating.
+```sql
+SELECT characteristic,
+        Count(*) as num,
+        ROUND(AVG(rating),2) as average_rating
+FROM character_clean
+GROUP BY characteristic
+ORDER BY num DESC, average_rating
+LIMIT 10;
+```
+[top10_img]
+
+From this table, the most mentioned characteristics are nutty, sweet, and cocoa. The average rating for most characteristics is above 3.00, suggesting a general preference for chocolates with these attributes.  Creamy chocolates have the highest average rating (3.48), followed by cocoa (3.37) and spicy (3.32). This suggests a particular fondness for creamy chocolates, but also an appreciation for complex flavors.
+
+While "sweet" is the second most mentioned characteristic, its ratings (3.05) are more varied than other descriptors. This suggests that people have diverse preferences for sweetness levels in chocolate, ranging from very sweet to less sweet. This complexity extends beyond sweetness, with cocoa, spicy, and roasty flavors also receiving high average ratings. This indicates that consumers appreciate chocolates with a variety of taste profiles, not just sweetness.
+
+SQL queries can provide insights into chocolate characteristics, but a clean dataset like this one is much easier to analyze with data visualization tools. Visualization tools can uncover hidden patterns within the hundreds of characteristics listed, leading to a richer understanding of consumer preferences.
 
 
+4.brand and rating<br>
+|rating|description|
+|---|---|
+|4.0 - 5.0|Outstanding|
+|3.5 - 3.9|Highly Recommended|
+|3.0 - 3.49|Recommended|
+|2.0 - 2.9|Disappointing|
+|1.0 - 1.9|Unpleasant|
 
-4.brand vs origin use
+
+This dataset
 
 
 
