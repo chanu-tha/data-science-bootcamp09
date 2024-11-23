@@ -14,7 +14,7 @@ WITH duplicate_check as(
 		industry,
 		total_laid_off,
 		percentage_laid_off,
-		date,
+		`date`,
 		stage,
 		country,
 		funds_raised,
@@ -23,7 +23,7 @@ WITH duplicate_check as(
 						industry,
 						total_laid_off,
 						percentage_laid_off,
-						date,
+						`date`,
 						stage,
 						country,
 						funds_raised
