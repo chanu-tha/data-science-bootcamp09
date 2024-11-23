@@ -18,8 +18,7 @@ WITH duplicate_check as(
 		stage,
 		country,
 		funds_raised,
-		ROW_NUMBER() OVER(
-		PARTITION BY 	company,
+		ROW_NUMBER() OVER(PARTITION BY 	company,
 						location,
 						industry,
 						total_laid_off,
