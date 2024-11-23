@@ -6,7 +6,7 @@ SELECT * FROM ;
 
 
 ### Check duplication
-```
+```sql
 WITH duplicate_check as(
 	SELECT
 		company,
